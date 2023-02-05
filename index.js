@@ -142,7 +142,8 @@ function filterFundedOnly() {
     // use filter() to get a list of games that have met or exceeded their goal
 
     let fundedGames= GAMES_JSON.filter(game => game.goal <= game.pledged );
-    console.log(fundedGames.length);
+
+    console.log(filterUnfundedOnly.length);
 
 
     // use the function we previously created to add unfunded games to the DOM
@@ -184,10 +185,16 @@ const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
 
+const unfundedGames = GAMES_JSON.filter( game => game.pledged > game.goal);
+const unfundedGames = unfundedGames.length;
+
 
 
 
 // create a string that explains the number of unfunded games using the ternary operator
+
+const displayStr = 
+` A total of $${totalRaised.toLocaleString()} has been raised for ${GAMES_JSON}`
 
 
 
